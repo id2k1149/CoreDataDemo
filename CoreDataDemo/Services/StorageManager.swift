@@ -13,7 +13,7 @@ final class StorageManager {
     
     // MARK: - Core Data stack
     var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "TaskListApp")
+        let container = NSPersistentContainer(name: "CoreDataDemo")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
@@ -22,7 +22,7 @@ final class StorageManager {
         return container
     }()
     
-    // MARK: - Core Data Saving Context
+    // MARK: - Core Data Save Context
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
@@ -42,4 +42,3 @@ final class StorageManager {
             saveContext()
         }
 }
-
